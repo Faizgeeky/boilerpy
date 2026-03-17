@@ -1,6 +1,6 @@
 # {{project_name}}
 
-FastAPI project with SQLAlchemy, PostgreSQL, and Alembic migrations generated with Speed Blueprint.
+FastAPI project with SQLAlchemy, PostgreSQL, and Alembic migrations generated with BoilerPy.
 
 ## Setup
 

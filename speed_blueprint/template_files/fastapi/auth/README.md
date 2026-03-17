@@ -1,6 +1,6 @@
 # {{project_name}}
 
-FastAPI project with JWT authentication generated with Speed Blueprint.
+FastAPI project with JWT authentication generated with BoilerPy.
 
 ## Setup
 

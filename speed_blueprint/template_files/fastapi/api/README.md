@@ -1,6 +1,6 @@
 # {{project_name}}
 
-FastAPI project generated with Speed Blueprint.
+FastAPI project generated with BoilerPy.
 
 ## Setup
 
