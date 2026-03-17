@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boilerpy"
+version = "0.1.0"
+description = "CLI to quickly scaffold FastAPI and Flask projects with opinionated blueprints."
+authors = [{ name = "Faiz", email = "fzofficial429@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["fastapi", "flask", "cli", "scaffold", "generator", "boilerplate"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "click>=8.0",
+]
+
+# [project.urls]
+# Homepage = "https://github.com/yourusername/boilerpy"
+# Repository = "https://github.com/yourusername/boilerpy"
+# Issues = "https://github.com/yourusername/boilerpy/issues"
+
+[project.scripts]
+bpy = "speed_blueprint.cli:main"
+
+[tool.setuptools]
+packages = ["speed_blueprint"]
+
+[tool.setuptools.package-data]
+speed_blueprint = ["template_files/**/*"]
