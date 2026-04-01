@@ -23,11 +23,14 @@
 
 Stop wasting time setting up the same project structure over and over. **BoilerPy** generates production-ready FastAPI and Flask projects in seconds with:
 
-- ✅ **5+ Professional Templates** - API-only, Auth, SQL, MongoDB, CRM
+- ✅ **10 Professional Templates** - 5 FastAPI + 5 Flask templates
+- 🔒 **Security First** - JWT auth, password hashing, CORS, input validation
 - ⚡ **Lightning Fast** - Generate projects in < 5 seconds
 - 🎨 **Clean Architecture** - Industry best practices built-in
+- 🛡️ **Production Ready** - Error handling, logging, rollback on failure
 - 🔧 **Zero Configuration** - Works out of the box
 - 🐍 **Python 3.9+** - Modern Python support
+- 🐳 **Docker Ready** - Docker Compose for databases
 
 ## 📦 Installation
 
@@ -82,11 +85,20 @@ $ bpy init fastapi
 3. SQL (SQLAlchemy + PostgreSQL)
    FastAPI with SQLAlchemy, PostgreSQL, and Alembic migrations
 
-Select template (1-5): 3
+Select template (1-5): 2
 Enter project name: my-awesome-api
 
-🚀 Creating SQL project: my-awesome-api
+🚀 Creating Authentication project: my-awesome-api
 ✅ Project created successfully!
+
+📚 Next steps:
+  cd my-awesome-api
+  python -m venv venv
+  source venv/bin/activate
+  pip install -r requirements.txt
+  uvicorn app.main:app --reload
+
+📖 API Docs: http://localhost:8000/docs
 ```
 
 ## 📚 Templates
@@ -163,18 +175,108 @@ app/
 ```
 
 ### 🔶 Flask Templates
-*Coming soon!*
+
+#### 1. **API Only** - Clean REST API
+Blueprint-based Flask API with CORS and clean architecture
+```
+app/
+├── api/v1/
+│   ├── endpoints/       # API endpoints
+│   │   └── items.py     # CRUD operations
+│   └── __init__.py      # Blueprint registration
+├── core/
+│   └── config.py        # Configuration
+└── schemas/             # Data validation
+```
+
+#### 2. **Authentication** - JWT Auth System
+Flask with JWT authentication and user management
+```
+app/
+├── api/v1/endpoints/
+│   ├── auth.py          # Register, login
+│   └── users.py         # User management
+├── core/
+│   ├── security.py      # JWT + password hashing
+│   └── config.py        # JWT settings
+└── models/              # User models
+```
+
+#### 3. **SQL** - SQLAlchemy + PostgreSQL
+Flask with SQLAlchemy 2.0 and PostgreSQL
+```
+app/
+├── models/              # SQLAlchemy models
+├── crud/                # CRUD operations
+├── schemas/             # Validation schemas
+├── core/
+│   └── database.py      # SQLAlchemy setup
+└── docker-compose.yml   # PostgreSQL
+```
+
+#### 4. **MongoDB** - PyMongo Integration
+Flask with PyMongo and advanced querying
+```
+app/
+├── core/
+│   └── database.py      # MongoDB connection
+├── models/              # MongoDB models
+├── api/v1/endpoints/
+│   └── items.py         # CRUD with filtering
+└── docker-compose.yml   # MongoDB
+```
+
+#### 5. **Full-Stack** - Complete Web App
+Flask with Jinja2 templates and authentication
+```
+app/
+├── routes/
+│   ├── main.py          # Main routes
+│   └── auth.py          # Auth routes
+├── templates/           # Jinja2 templates
+│   ├── base.html
+│   ├── index.html
+│   └── auth/            # Login, register
+├── static/
+│   ├── css/style.css    # Modern responsive CSS
+│   └── js/main.js       # Form validation
+├── models/              # User models
+└── forms/               # WTForms
 
 ## 🎨 Features
 
+### Core Features
 - 🏗️ **Production-Ready** - All templates follow industry best practices
 - 📁 **Clean Structure** - Organized, scalable architecture
-- 🔐 **Security** - JWT authentication, password hashing built-in
-- 🗄️ **Database Ready** - SQLAlchemy, PostgreSQL, MongoDB support
+- ⚡ **Async Support** - FastAPI with async/await, Motor for MongoDB
 - 🐳 **Docker Included** - docker-compose.yml for databases
 - 📝 **Type Hints** - Full typing support with Pydantic
 - 🧪 **Testing Ready** - Structured for easy testing
 - 📖 **Documentation** - Comprehensive README in each project
+
+### Security Features
+- 🔐 **JWT Authentication** - Access & refresh tokens
+- 🔒 **Password Hashing** - PBKDF2-SHA256 with Werkzeug/Passlib
+- 🛡️ **Input Validation** - Server-side validation with detailed errors
+- 🌐 **CORS Configuration** - Configurable allowed origins
+- 🔑 **CSRF Protection** - Built into fullstack templates
+- 🚫 **SQL Injection Prevention** - Parameterized queries/ORM
+- 📋 **Security Headers** - X-Frame-Options, X-Content-Type-Options
+
+### Reliability Features
+- 📊 **Comprehensive Logging** - Structured logging throughout
+- 🔄 **Rollback on Failure** - Automatic cleanup if generation fails
+- ✅ **Input Validation** - Project name validation, path security
+- 🛡️ **Directory Traversal Protection** - Secure file operations
+- ⚠️ **Error Handling** - Comprehensive error messages
+- 🔍 **Verbose Mode** - `--verbose` flag for debugging
+
+### Database Support
+- 🗄️ **PostgreSQL** - SQLAlchemy with Alembic migrations
+- 🍃 **MongoDB** - Motor (async) & PyMongo support
+- 🔄 **Database Migrations** - Alembic configured
+- 🐳 **Docker Compose** - One-command database setup
+- 📊 **Connection Pooling** - Optimized database connections
 
 ## 📖 Documentation
 
@@ -194,16 +296,89 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-Visit http://localhost:8000/docs for API documentation.
+**FastAPI Projects:**
+```bash
+uvicorn app.main:app --reload
+```
+Visit http://localhost:8000/docs for interactive API documentation.
+
+**Flask Projects:**
+```bash
+flask run
+```
+Visit http://localhost:5000 for your application.
 
 ### Project Structure
 
 Every generated project includes:
 - ✅ `requirements.txt` - All dependencies
 - ✅ `.env.example` - Environment variables template
-- ✅ `.gitignore` - Git ignore rules
-- ✅ `README.md` - Complete setup guide
+- ✅ `.gitignore` - Comprehensive Python gitignore (auto-generated)
+- ✅ `README.md` - Complete setup guide with examples
 - ✅ `docker-compose.yml` - Database setup (SQL/MongoDB templates)
+- ✅ Secure file permissions - Proper file modes set automatically
+
+### CLI Options
+
+```bash
+# Basic usage
+bpy init fastapi              # Interactive template selection
+bpy init flask my-project     # Specify project name upfront
+bpy list                      # List all available templates
+
+# With verbose logging
+bpy --verbose init fastapi    # See detailed generation logs
+
+# Get help
+bpy --help                    # Show all commands
+bpy init --help               # Show init command help
+```
+
+## 🚦 Version History
+
+### v1.0.1 (Latest)
+- ✅ Added 5 Flask templates (API, Auth, SQL, MongoDB, Full-Stack)
+- ✅ Enhanced security: input validation, directory traversal protection
+- ✅ Added logging and error handling with rollback
+- ✅ Auto-generated .gitignore files
+- ✅ Improved CLI with verbose mode
+- ✅ Added MongoDB and CRM templates for FastAPI
+- ✅ Enhanced documentation
+
+### v0.1.0
+- Initial release with 3 FastAPI templates
+
+## 🔐 Security Best Practices
+
+All templates include security features out of the box:
+
+### Authentication Templates
+- Password hashing with PBKDF2-SHA256
+- JWT tokens with configurable expiration
+- Secure secret key management via environment variables
+- Protected routes with authentication middleware
+
+### API Security
+- CORS configuration with allowed origins
+- Input validation with Pydantic (FastAPI) or WTForms (Flask)
+- SQL injection prevention via ORM
+- Security headers (X-Frame-Options, X-Content-Type-Options)
+
+### File Security
+- Directory traversal attack prevention
+- Secure file permissions (644 for files, 755 for directories)
+- Validation of project names and paths
+- Safe template variable replacement
+
+### Production Checklist
+Before deploying to production:
+1. ✅ Change `SECRET_KEY` in `.env` (min 32 characters)
+2. ✅ Set `DEBUG=False`
+3. ✅ Configure production database URLs
+4. ✅ Set up HTTPS/SSL certificates
+5. ✅ Configure allowed CORS origins
+6. ✅ Set up monitoring and logging
+7. ✅ Use environment-specific configs
 
 ## 🛠️ Development
 

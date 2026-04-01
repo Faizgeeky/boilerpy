@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - {{project_name}}{% endblock %}
+
+{% block content %}
+<div class="card dashboard-card">
+    <div class="card-header">Welcome to Your Dashboard</div>
+
+    <div class="user-info">
+        <h2>👤 Your Profile</h2>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        {% if user.full_name %}
+            <p><strong>Full Name:</strong> {{ user.full_name }}</p>
+        {% endif %}
+        <p><strong>User ID:</strong> {{ user.id }}</p>
+    </div>
+
+    <div style="margin-top: 2rem;">
+        <h3>Quick Actions</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div class="card" style="padding: 1.5rem; text-align: center;">
+                <h4>📊 Analytics</h4>
+                <p>View your statistics</p>
+                <button class="btn btn-primary" onclick="alert('Feature coming soon!')">View</button>
+            </div>
+            <div class="card" style="padding: 1.5rem; text-align: center;">
+                <h4>⚙️ Settings</h4>
+                <p>Manage your account</p>
+                <button class="btn btn-primary" onclick="alert('Feature coming soon!')">Manage</button>
+            </div>
+            <div class="card" style="padding: 1.5rem; text-align: center;">
+                <h4>📝 Content</h4>
+                <p>Create new content</p>
+                <button class="btn btn-success" onclick="alert('Feature coming soon!')">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 2rem; text-align: center;">
+        <a href="{{ url_for('auth.logout') }}" class="btn btn-danger">Logout</a>
+    </div>
+</div>
+{% endblock %}

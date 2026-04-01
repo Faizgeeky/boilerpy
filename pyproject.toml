@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "boilerpy"
-version = "0.1.0"
-description = "CLI to quickly scaffold FastAPI and Flask projects with opinionated blueprints."
+version = "1.0.1"
+description = "Production-ready CLI to scaffold FastAPI and Flask projects with security, reliability, and 10+ boilerplate templates."
 authors = [{ name = "Faiz", email = "fzofficial429@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.9"

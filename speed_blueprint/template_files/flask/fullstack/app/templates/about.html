@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}About - {{project_name}}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">About {{project_name}}</div>
+    <div style="line-height: 1.8;">
+        <p>
+            {{project_name}} is a modern Flask fullstack application that demonstrates best practices
+            for building web applications with Python.
+        </p>
+
+        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Technology Stack</h3>
+        <ul style="line-height: 2;">
+            <li><strong>Flask 3.0</strong> - Modern Python web framework</li>
+            <li><strong>Flask-Login</strong> - User session management</li>
+            <li><strong>Flask-WTF</strong> - Form handling with CSRF protection</li>
+            <li><strong>Jinja2</strong> - Template engine for dynamic pages</li>
+            <li><strong>Custom CSS</strong> - Responsive design without dependencies</li>
+        </ul>
+
+        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Features</h3>
+        <ul style="line-height: 2;">
+            <li>Secure user authentication and session management</li>
+            <li>Password hashing with Werkzeug</li>
+            <li>CSRF protection on all forms</li>
+            <li>Form validation with WTForms</li>
+            <li>Responsive design for all devices</li>
+            <li>Flash messages for user feedback</li>
+            <li>Error handling (404, 500)</li>
+            <li>JavaScript enhancements for better UX</li>
+        </ul>
+
+        <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Security</h3>
+        <p>
+            This application implements several security best practices including:
+        </p>
+        <ul style="line-height: 2;">
+            <li>Password hashing using PBKDF2-SHA256</li>
+            <li>CSRF token protection on forms</li>
+            <li>Secure session cookies (HttpOnly, SameSite)</li>
+            <li>Input validation and sanitization</li>
+            <li>Login required decorator for protected routes</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
